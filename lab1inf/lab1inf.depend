@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1726672099 source:c:\users\libertuzazxc\documents\labinfall\lab1inf\main.cpp
+	<cmath>
+	<iostream>
+
+1726672775 source:c:\users\libertuzazxc\documents\labinfall\lab1inf\mainalt.cpp
+	<cmath>
+	<stdio.h>
+
