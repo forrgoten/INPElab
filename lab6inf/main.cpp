@@ -2,12 +2,6 @@
 
 using namespace std;
 
-//size end begin etc default containers for size begin iterator end iterator etc
-//size_t var type for sizes
-//var* pointer var** pointer to pointer
-//--x before x-- after while var-- until var != 0
-//&var returns memory adres of var
-
 void print_arr(int array[], size_t size)
 {
    while (size--)

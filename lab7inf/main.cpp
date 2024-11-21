@@ -58,7 +58,9 @@ int main()
     cin >> matrix[2][0] >> matrix[2][1] >> matrix[2][2] >> matrix[2][3] >> matrix[2][4];
     cin >> matrix[3][0] >> matrix[3][1] >> matrix[3][2] >> matrix[3][3] >> matrix[3][4];
     array<double, 4> y = gauss(matrix);
-    array<double, 4> x = {1, 1, 2, -3};
+    array<double, 4> x;
+    cout << "Enter vector" << endl;
+    cin >> x[0] >> x[1] >> x[2] >> x[3];
     double answr = y[0] * x[0] + y[1] * x[1] + y[2] * x[2] + y[3] * x[3];
     cout << answr << endl;
     return 0;

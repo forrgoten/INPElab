@@ -5,49 +5,60 @@
 #include <algorithm>
 #include <numeric>
 
-struct Tour {
-    std::string country;
+using namespace std;
+
+struct Tour
+{
+    string country;
     double price;
-    int* sales; // Pointer to dynamic array
+    int *sales; // Pointer to dynamic array
     int salesCount;
     double average_sales;
 
-    Tour(int count) : salesCount(count) {
+    Tour(int count) : salesCount(count)
+    {
         sales = new int[salesCount]; // Dynamic memory allocation for array
     }
 
-    ~Tour() {
+    ~Tour()
+    {
         delete[] sales; // Free allocated memory
     }
 
-    void calculate_average_sales() {
-        average_sales = std::accumulate(sales, sales + salesCount, 0) / static_cast<double>(salesCount);
+    void calculate_average_sales()
+    {
+        average_sales = accumulate(sales, sales + salesCount, 0) / static_cast<double>(salesCount);
     }
 };
 
-bool compare(const Tour* a, const Tour* b) {
-    double total_a = a->price * std::accumulate(a->sales, a->sales + a->salesCount, 0);
-    double total_b = b->price * std::accumulate(b->sales, b->sales + b->salesCount, 0);
+bool compare(const Tour *a, const Tour *b)
+{
+    double total_a = a->price * accumulate(a->sales, a->sales + a->salesCount, 0);
+    double total_b = b->price * accumulate(b->sales, b->sales + b->salesCount, 0);
     return total_a > total_b;
 }
 
-int main() {
-    std::ifstream binaryFile("tours.dat", std::ios::binary);
-    std::ofstream resultFile("result.txt");
+int main()
+{
+    ifstream binaryFile("tours.dat", ios::binary);
+    ofstream resultFile("result.txt");
 
-    if (!binaryFile.is_open() || !resultFile.is_open()) {
-        std::cerr << "Error opening files!" << std::endl;
+    if (!binaryFile.is_open() || !resultFile.is_open())
+    {
+        cerr << "Error opening files!" << endl;
         return 1;
     }
 
-    std::vector<Tour*> tours;
+    vector<Tour *> tours;
 
-    while (true) {
-        Tour* tour = new Tour(6); // Create new Tour object with dynamic array
+    while (true)
+    {
+        Tour *tour = new Tour(6); // Create new Tour object with dynamic array
         // Read country name length first
         size_t countryLength;
-        binaryFile.read(reinterpret_cast<char*>(&countryLength), sizeof(countryLength));
-        if (binaryFile.eof()) {
+        binaryFile.read(reinterpret_cast<char *>(&countryLength), sizeof(countryLength));
+        if (binaryFile.eof())
+        {
             delete tour; // Free memory if end of file is reached
             break;
         }
@@ -56,17 +67,18 @@ int main() {
         tour->country.resize(countryLength);
         binaryFile.read(&tour->country[0], countryLength);
 
-        binaryFile.read(reinterpret_cast<char*>(&tour->price), sizeof(tour->price));
-        binaryFile.read(reinterpret_cast<char*>(tour->sales), sizeof(int) * 6); // Read array
+        binaryFile.read(reinterpret_cast<char *>(&tour->price), sizeof(tour->price));
+        binaryFile.read(reinterpret_cast<char *>(tour->sales), sizeof(int) * 6); // Read array
         tour->calculate_average_sales();
         tours.push_back(tour); // Add pointer to vector
     }
 
     // Sort by descending order
-    std::sort(tours.begin(), tours.end(), compare);
+    sort(tours.begin(), tours.end(), compare);
 
     // Write results to text file
-    for (const auto& t : tours) {
+    for (const auto &t : tours)
+    {
         resultFile << "Country: " << t->country << ", Price: " << t->price
                    << ", Average Sales: " << t->average_sales << "\n";
     }
@@ -75,7 +87,8 @@ int main() {
     resultFile.close();
 
     // Free allocated memory
-    for (auto tour : tours) {
+    for (auto tour : tours)
+    {
         delete tour;
     }
 
