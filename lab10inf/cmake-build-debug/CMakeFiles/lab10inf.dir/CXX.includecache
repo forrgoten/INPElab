@@ -6,11 +6,17 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/libertuzazxc/Documents/labinfall/lab7inf/main.cpp
+C:/Users/libertuzazxc/Documents/labinfall/lab10inf/main.cpp
 iostream
 -
-array
+fstream
 -
-stdexcept
+vector
+-
+string
+-
+algorithm
+-
+numeric
 -
 

@@ -1,0 +1,3 @@
+Country: France, Price: 1200.5, Average Sales: 233.333
+Country: Spain, Price: 1100, Average Sales: 211.667
+Country: Italy, Price: 950.75, Average Sales: 186.667

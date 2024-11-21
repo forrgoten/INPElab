@@ -6,11 +6,15 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/libertuzazxc/Documents/labinfall/lab7inf/main.cpp
+C:/Users/libertuzazxc/Documents/labinfall/10labtxtbin/main.cpp
 iostream
 -
-array
+fstream
 -
-stdexcept
+string
+-
+vector
+-
+sstream
 -
 

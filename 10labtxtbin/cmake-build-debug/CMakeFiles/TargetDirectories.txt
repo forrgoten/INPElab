@@ -1,0 +1,3 @@
+C:/Users/libertuzazxc/Documents/labinfall/10labtxtbin/cmake-build-debug/CMakeFiles/10labtxtbin.dir
+C:/Users/libertuzazxc/Documents/labinfall/10labtxtbin/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/libertuzazxc/Documents/labinfall/10labtxtbin/cmake-build-debug/CMakeFiles/rebuild_cache.dir
